@@ -101,6 +101,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate, CBP
         if blePeripheral != nil {
             // We have a connection to the device but we are not subscribed to the Transfer Characteristic for some reason.
             // Therefore, we will just disconnect from the peripheral
+//            modView.writeCharacteristicOff();
             centralManager?.cancelPeripheralConnection(blePeripheral!)
         }
     }

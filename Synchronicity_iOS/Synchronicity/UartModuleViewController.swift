@@ -12,6 +12,7 @@
 
 import UIKit
 import CoreBluetooth
+var modView = UartModuleViewController()
 
 class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
@@ -31,17 +32,17 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
         super.viewDidLoad()
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
-        self.baseTextView.delegate = self
-        self.inputTextField.delegate = self
+//        self.baseTextView.delegate = self
+//        self.inputTextField.delegate = self
         //Base text view setup
-        self.baseTextView.layer.borderWidth = 3.0
-        self.baseTextView.layer.borderColor = UIColor.blue.cgColor
-        self.baseTextView.layer.cornerRadius = 3.0
-        self.baseTextView.text = ""
+//        self.baseTextView.layer.borderWidth = 3.0
+//        self.baseTextView.layer.borderColor = UIColor.blue.cgColor
+//        self.baseTextView.layer.cornerRadius = 3.0
+//        self.baseTextView.text = ""
         //Input Text Field setup
-        self.inputTextField.layer.borderWidth = 2.0
-        self.inputTextField.layer.borderColor = UIColor.blue.cgColor
-        self.inputTextField.layer.cornerRadius = 3.0
+//        self.inputTextField.layer.borderWidth = 2.0
+//        self.inputTextField.layer.borderColor = UIColor.blue.cgColor
+//        self.inputTextField.layer.cornerRadius = 3.0
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         //-Notification for updating the text view with incoming text
@@ -49,7 +50,7 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.baseTextView.text = ""
+//        self.baseTextView.text = ""
         
         
     }
@@ -71,12 +72,12 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
             let myAttributes2 = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): myFont!, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.red]
             let attribString = NSAttributedString(string: "[Incoming]: " + (characteristicASCIIValue as String) + appendString, attributes: convertToOptionalNSAttributedStringKeyDictionary(myAttributes2))
             let newAsciiText = NSMutableAttributedString(attributedString: self.consoleAsciiText!)
-            self.baseTextView.attributedText = NSAttributedString(string: characteristicASCIIValue as String , attributes: convertToOptionalNSAttributedStringKeyDictionary(myAttributes2))
+//            self.baseTextView.attributedText = NSAttributedString(string: characteristicASCIIValue as String , attributes: convertToOptionalNSAttributedStringKeyDictionary(myAttributes2))
             
             newAsciiText.append(attribString)
             
             self.consoleAsciiText = newAsciiText
-            self.baseTextView.attributedText = self.consoleAsciiText
+//            self.baseTextView.attributedText = self.consoleAsciiText
             
         }
     }
@@ -134,6 +135,11 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
         blePeripheral!.writeValue(ns as Data, for: txCharacteristic!, type: CBCharacteristicWriteType.withResponse)
     }
     
+    func writeCharacteristicOff(){
+        var val = 0
+        let ns = NSData(bytes: &val, length: MemoryLayout<Int8>.size)
+        blePeripheral!.writeValue(ns as Data, for: txCharacteristic!, type: CBCharacteristicWriteType.withResponse)
+    }
     
     
     //MARK: UITextViewDelegate methods
@@ -168,28 +174,22 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
     
     //This on/off switch sends a value of 1 and 0 to the Arduino
     //This can be used as a switch or any thing you'd like
-    @IBAction func switchAction(_ sender: Any) {
-        if switchUI.isOn {
-            print("On ")
-            writeCharacteristic(val: 5)
-        }
-        else
-        {
-            print("Off")
-            writeCharacteristic(val: 0)
-//            print(writeCharacteristic)
-        }
+    @IBAction func greenButton(_ sender: UIButton) {
+        writeCharacteristic(val: 2)
     }
-    @IBAction func blinkAction(_ sender: Any) {
-        if (sender as AnyObject).isOn {
-            switchAction(false)
-            print("Blink on")
-            writeCharacteristic(val: 9)
-        } else {
-            print("Blink Off")
-            writeCharacteristic(val: 0)
-        }
+    
+    @IBAction func ledsOff(_ sender: UIButton) {
+        writeCharacteristicOff()
     }
+    @IBAction func redButton(_ sender: UIButton) {
+        writeCharacteristic(val: 1)
+    }
+    @IBAction func blueButton(_ sender: UIButton) {
+        writeCharacteristic(val: 3)
+    }
+    
+
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
