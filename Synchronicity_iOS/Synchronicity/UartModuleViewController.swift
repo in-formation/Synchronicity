@@ -207,6 +207,9 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
     @IBAction func rainbow1Pressed(_ sender: UIButton) {
         writeCharacteristic(val: 7)
     }
+    @IBAction func rainbow3Pressed(_ sender: UIButton) {
+        writeCharacteristic(val: 9)
+    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
