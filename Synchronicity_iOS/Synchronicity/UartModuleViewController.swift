@@ -200,6 +200,14 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
         writeCharacteristic(val: 6)
     }
     
+    // rainbow colors
+    @IBAction func rainbow2Pressed(_ sender: UIButton) {
+        writeCharacteristic(val: 8)
+    }
+    @IBAction func rainbow1Pressed(_ sender: UIButton) {
+        writeCharacteristic(val: 7)
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
