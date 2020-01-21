@@ -139,19 +139,19 @@ void loop()
                     rainbowHold(20);
                     delay(500);
                     break;
-                case 10:
+                case 10: // for My Own App
                     rainbowCycleslow(20);
                     delay(50);
                     break;
-                case 'A':
+                case 'A': // for LightBlue app
                     rainbowCycleslow(20);
                     delay(50);
                     break;
-                case 11:
+                case 11: // for My Own App
                     rainbowCycle(5);
                     delay(50);
                     break;
-                case 'B':
+                case 'B': // for LightBlue app
                     rainbowCycle(5);
                     delay(50);
                     break;
