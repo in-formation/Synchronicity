@@ -21,7 +21,7 @@
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, PIN);
 
 // Declare our NeoPixel strip object:
-Adafruit_NeoPixel strip(7, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip(21, PIN, NEO_GRB + NEO_KHZ800);
 // Argument 1 = Number of pixels in NeoPixel strip
 // Argument 2 = Arduino pin number (most are valid)
 // Argument 3 = Pixel type flags, add together as needed:
