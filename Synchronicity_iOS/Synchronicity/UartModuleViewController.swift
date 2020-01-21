@@ -178,6 +178,7 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
         writeCharacteristic(val: 2)
     }
     
+    // Solid colors
     @IBAction func ledsOff(_ sender: UIButton) {
         writeCharacteristicOff()
     }
@@ -188,7 +189,16 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
         writeCharacteristic(val: 3)
     }
     
-
+    // Blinking colors
+    @IBAction func greenBlink(_ sender: UIButton) {
+        writeCharacteristic(val: 5)
+    }
+    @IBAction func redBlink(_ sender: UIButton) {
+        writeCharacteristic(val: 4)
+    }
+    @IBAction func cyanBlink(_ sender: UIButton) {
+        writeCharacteristic(val: 6)
+    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
