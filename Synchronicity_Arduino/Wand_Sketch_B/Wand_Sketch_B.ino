@@ -8,6 +8,7 @@
 #include <ArduinoBLE.h>
 #include <Adafruit_NeoPixel.h>
 
+
 BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
 
 // BLE LED Switch Characteristic - read and writable by central, increase base number by one
@@ -15,10 +16,16 @@ BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214
 
 const int ledPin = LED_BUILTIN; // pin to use for LED on the board
 const int PIN = 12; // pin to use for Neopixels
-#define NUM_LEDS 7
+const int ledCount = 7;
 
-//create a NeoPixel strip
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(ledCount, PIN, NEO_GRB + NEO_KHZ800);
+
+int alpha; // Current value of the pixels
+int dir = 1; // Direction of the pixels... 1 = getting brighter, 0 = getting dimmer
+int flip; // Randomly flip the direction every once in a while
+int minAlpha = 25; // Min value of brightness
+int maxAlpha = 100; // Max value of brightness
+int alphaDelta = 5; // Delta of brightness between times through the loop
 
 void setup() {
   Serial.begin(9600);
@@ -52,10 +59,18 @@ void setup() {
 
   Serial.println("Synchronicity now advertising peripheral");
 
-  // start the strip and blank it out
   strip.begin();
-  strip.show();
+  strip.show(); // Initialize all pixels to 'off'
+
 }
+
+void colorSet(uint32_t c) {
+  for(uint16_t i=0; i<strip.numPixels(); i++) {
+    strip.setPixelColor(i, c);
+    strip.show();
+  }
+}
+
 
 void loop() {
   // listen for BLE peripherals to connect:
@@ -75,15 +90,32 @@ void loop() {
 //      Serial.println(ledService.uuid());
       
       if (switchCharacteristic.written()) {
+        if (switchCharacteristic.value() == 0) {
+          strip.clear();
+        }
+        if (switchCharacteristic.value() == 1) {
+          colorSet(strip.Color(255, 51, 204)); // magenta light ON
+        }
         if (switchCharacteristic.value() == 5) {   // 
-          // set pixel to red, delay(1000)
-          strip.setPixelColor(0, 255, 0, 0);
-          strip.show();
-          delay(1000);
-          // set pixel to off, delay(1000)
-          strip.setPixelColor(0, 0, 0, 0);
-          strip.show();
-          delay(1000);        // will turn the LED on
+          flip = random(32);
+          if(flip > 20) {
+            dir = 1 - dir;
+          }
+          if(dir == 1) {
+            alpha += alphaDelta;
+          }
+          if(dir == 0) {
+            alpha -= alphaDelta;
+          }
+          if(alpha < minAlpha) {
+            alpha = minAlpha;
+            dir = 1;
+          }
+          if(alpha > maxAlpha) {
+            alpha = maxAlpha;
+            dir = 0;
+          }
+          colorSet(strip.Color(alpha, 0, 0)); // Red
         } else if (switchCharacteristic.value() == 9) {
           Serial.println("LED blink");
           digitalWrite(ledPin, HIGH); 
@@ -114,3 +146,10 @@ void loop() {
     Serial.println(central.address());
   }
 }
+
+//void colorSet(uint32_t c) {
+//  for(uint16_t i=0; i<strip.numPixels(); i++) {
+//    strip.setPixelColor(i, c);
+//    strip.show();
+//  }
+//}
