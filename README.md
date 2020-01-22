@@ -10,8 +10,10 @@ This project can be broken up into three different portions:
 ### iOS Application
 This app will require the use of Xcode and will be written in Swift language. It also utilizes the already installed bluetooth library called CoreBluetooth.
 
+```
 Install Xcode from 
 [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835)
+```
 
 The program is written using Swift language and the 
-[CoreBluetooth library](https://developer.apple.com/documentation/corebluetooth) for Xcode/Swift.
+[CoreBluetooth library](https://developer.apple.com/documentation/corebluetooth) for Xcode/Swift. No additional downloading is needed to utilize the library as it comes pre installed on Xcode.
