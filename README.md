@@ -24,8 +24,8 @@ The Arduino board program needs to be uploaded using the
 [Arduino IDE.](https://www.arduino.cc/en/main/software) If you want to work on the code while offline, do not use the web editor.
 
 ### Hardware Required
-* 1 [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
-* As many [NeoPixel Jewels](https://www.adafruit.com/product/2226) as preferred
+* [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
+* [NeoPixel Jewels](https://www.adafruit.com/product/2226)
   * This project uses three NeoPixel Jewels, total of 21 LEDs
 * Solid core wires
 * [LiIon/LiPoly Backpack Add-On](https://www.adafruit.com/product/2124)
@@ -41,3 +41,7 @@ The Arduino board program needs to be uploaded using the
 * Solid core wires
 * Solder iron and solder
 * Wire cutters/strippers
+
+## Synchronicity Wire Schematic
+![Synchronicity_Wire_Diagram](/images/Synchronicity_Wire_Sketch.png)
+Format: ![Alt Text](url)
