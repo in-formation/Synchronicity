@@ -4,8 +4,8 @@ Synchronicity is an iOS application that controls an LED wearable via Bluetooth 
 ## Getting Started
 This project can be broken up into three different portions:
 1. iOS Application
-2. Arduino program
-3. Hardware
+2. Arduino Program
+3. Hardware Required (and not required)
 
 ### iOS Application
 This app will require the use of Xcode and will be written in Swift language. It also utilizes the already installed bluetooth library called CoreBluetooth.
@@ -44,3 +44,8 @@ The Arduino board program needs to be uploaded using the
 
 ## Synchronicity Wire Schematic
 ![Synchronicity_Wire_Diagram](/images/Synchronicity_Wire_Sketch.png)
+
+## Authors
+**Farah Davoodi** | [https://github.com/in-formation](https://github.com/in-formation)
+
+## Acknowledgements
