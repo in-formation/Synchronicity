@@ -21,8 +21,23 @@ The program is written using Swift language and the
 
 ### Arduino Program
 The Arduino board program needs to be uploaded using the 
-[Arduino IDE.](https://www.arduino.cc/en/main/software)
+[Arduino IDE.](https://www.arduino.cc/en/main/software) If you want to work on the code while offline, do not use the web editor.
 
 ### Hardware Required
-* [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
-* Neopixel Jewel
+* 1 [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
+* As many [NeoPixel Jewels](https://www.adafruit.com/product/2226) as preferred
+  * This project uses three NeoPixel Jewels, total of 21 LEDs
+* Solid core wires
+* [LiIon/LiPoly Backpack Add-On](https://www.adafruit.com/product/2124)
+  * Or any way to power circuit off battery power
+* [LiIon/LiPoly Battery 3.7V 500mAh](https://www.adafruit.com/product/1578)
+  * Amperage can vary but 500mAh was enough for initial project requirements
+
+#### Additional Hardware Recommended
+* [Adafruit Micro Lipo - USB LiIon/LiPoly charger](https://www.adafruit.com/product/1304)
+  * Used the charge batteries so you don't have to keep buying new ones
+* Breadboard
+* Jumper wires
+* Solid core wires
+* Solder iron and solder
+* Wire cutters/strippers
