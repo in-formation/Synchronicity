@@ -43,4 +43,4 @@ The Arduino board program needs to be uploaded using the
 * Wire cutters/strippers
 
 ## Synchronicity Wire Schematic
-![Synchronicity_Wire_Diagram](/images/Synchronicity_Wire_Sketch.png)
+<!-- ![Synchronicity_Wire_Diagram](/images/Synchronicity_Wire_Sketch.png) -->
