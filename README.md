@@ -21,7 +21,17 @@ The program is written using Swift language and the
 
 ### Arduino Program
 The Arduino board program needs to be uploaded using the 
-[Arduino IDE.](https://www.arduino.cc/en/main/software) If you want to work on the code while offline, do not use the web editor.
+[Arduino IDE.](https://www.arduino.cc/en/main/software)
+
+After downloading the Arduino IDE software onto your machine, two additional Arduino libraries will need to be downloaded:
+1. ArduinoBLE
+2. Adafruit_NeoPixel
+
+In order to download Arduino libraries, go to:
+```
+Tools --> Manage Libraries
+```
+In the search bar, type `<ArduinoBLE>` and click **Install**. Do the same for the Adafruit_Neopixel library.
 
 ### Hardware Required
 * [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
