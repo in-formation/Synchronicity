@@ -31,13 +31,22 @@ From here type the name of the board in the search bar, `Arduino Nano 33 BLE`, a
 
 Two additional Arduino libraries will need to be downloaded:
 1. ArduinoBLE
-2. Adafruit_NeoPixel
+2. Adafruit NeoPixel
 
 In order to download Arduino libraries, navigate to the top menu and go to:
 ```
 Tools --> Manage Libraries...
 ```
 In the search bar, type `ArduinoBLE` and click **Install**. Do the same for the multiple `Adafruit Neopixel` library.
+
+#### Uploading a Program onto the Board
+Once all the steps above have been completed, you will be able upload the program onto the board.
+
+**Don't forget to choose the correct Port before uploading the program.**
+
+Additionally, depending on how many LEDs you are using, you may need adjust the number of pixels when setting up the Adafruit NeoPixel setup.
+
+The setup for this project relies on Pin 12 for the data output of the NeoPixels but this can be updated to what your project requires. Be sure to update the Pin # in the Arduino program if you do not use Pin 12.
 
 ### Hardware Required
 * [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
