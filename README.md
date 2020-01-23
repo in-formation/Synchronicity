@@ -23,15 +23,21 @@ The program is written using Swift language and the
 The Arduino board program needs to be uploaded using the 
 [Arduino IDE.](https://www.arduino.cc/en/main/software)
 
-After downloading the Arduino IDE software onto your machine, two additional Arduino libraries will need to be downloaded:
+After downloading the Arduino IDE software onto your machine, you will need to download the drivers for the specific board being used. Navigate to the top menu and go to:
+```
+Tools --> Board --> Boards Manager...
+```
+From here type the name of the board in the search bar, `Arduino Nano 33 BLE`, and click **Install** to install the related drivers.
+
+Two additional Arduino libraries will need to be downloaded:
 1. ArduinoBLE
 2. Adafruit_NeoPixel
 
-In order to download Arduino libraries, go to:
+In order to download Arduino libraries, navigate to the top menu and go to:
 ```
-Tools --> Manage Libraries
+Tools --> Manage Libraries...
 ```
-In the search bar, type `<ArduinoBLE>` and click **Install**. Do the same for the Adafruit_Neopixel library.
+In the search bar, type `ArduinoBLE` and click **Install**. Do the same for the multiple `Adafruit Neopixel` library.
 
 ### Hardware Required
 * [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
