@@ -17,7 +17,7 @@ Xcode can be found in the
 [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835)
 
 The program is written using Swift language and the 
-[CoreBluetooth library](https://developer.apple.com/documentation/corebluetooth) for Xcode/Swift. No additional downloading is needed to utilize the library as it comes pre installed on Xcode.
+[CoreBluetooth library](https://developer.apple.com/documentation/corebluetooth) for Xcode/Swift. No additional downloading is needed to utilize the library as it comes pre-installed on Xcode.
 
 From here, you will be able to build the app and deploy onto your iOS device.
 **Note: Depending on your Mac OS, Bluetooth Low Energy may or may not be supported on the Xcode simulator.** It is recommended to deploy on your personal device.
@@ -78,6 +78,6 @@ Once all the steps above have been completed, you will be able upload the progra
 
 ## Acknowledgements
 Thank you to Adafruit for their amazing tutorial on creating a [Bluetooth Arduino application using Xcode/Swift.](https://learn.adafruit.com/crack-the-code)
-Specific thanks to user TrevKnows,[https://github.com/TrevKnows](https://github.com/TrevKnows), for creating the tutorial that greatly helped create Synchronicity.
+Specific thanks to user TrevKnows, [https://github.com/TrevKnows](https://github.com/TrevKnows), for creating the tutorial that greatly helped create Synchronicity.
 
 Thank you to Arduino for their [Arduino Bluetooth Low Energy Library](https://github.com/arduino-libraries/ArduinoBLE) that had a great example Arduino sketch that vastly helped my project connect to the iOS application.
