@@ -19,6 +19,9 @@ Xcode can be found in the
 The program is written using Swift language and the 
 [CoreBluetooth library](https://developer.apple.com/documentation/corebluetooth) for Xcode/Swift. No additional downloading is needed to utilize the library as it comes pre installed on Xcode.
 
+From here, you will be able to build the app and deploy onto your iOS device.
+**Note: Depending on your Mac OS, Bluetooth Low Energy may or may not be supported on the Xcode simulator.** It is recommended to deploy on your personal device.
+
 ### Arduino Program
 The Arduino board program needs to be uploaded using the 
 [Arduino IDE.](https://www.arduino.cc/en/main/software)
@@ -40,13 +43,13 @@ Tools --> Manage Libraries...
 In the search bar, type `ArduinoBLE` and click **Install**. Do the same for the multiple `Adafruit Neopixel` library.
 
 #### Uploading a Program onto the Board
-Once all the steps above have been completed, you will be able upload the program onto the board.
+Ensure you choose the correct Port before uploading the program.
 
-**Don't forget to choose the correct Port before uploading the program.**
-
-Additionally, depending on how many LEDs you are using, you may need adjust the number of pixels when setting up the Adafruit NeoPixel setup.
+Additionally, depending on how many LEDs you are using, you may need adjust the number of LEDs when setting up the Adafruit NeoPixel object.
 
 The setup for this project relies on Pin 12 for the data output of the NeoPixels but this can be updated to what your project requires. Be sure to update the Pin # in the Arduino program if you do not use Pin 12.
+
+Once all the steps above have been completed, you will be able upload the program onto the board.
 
 ### Hardware Required
 * [Arduino Nano 33 BLE (with or without headers installed)](https://store.arduino.cc/usa/nano-33-ble)
