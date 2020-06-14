@@ -1,6 +1,9 @@
 # Synchronicity iOS Application
 Synchronicity is an iOS application that controls an LED wearable via Bluetooth communication.
 
+## Video Demo
+[![Synchronicity Video Demo](https://i.imgur.com/r8Klbsv.png)](https://vimeo.com/416465739 "Synchronicity Video Demo")
+
 ## Getting Started
 This project can be broken up into three different portions:
 1. iOS Application
